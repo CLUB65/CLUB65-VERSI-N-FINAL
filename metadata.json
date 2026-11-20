@@ -1,0 +1,8 @@
+{
+  "name": "CLUB65 - v17 Edición Nerina ",
+  "description": "",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

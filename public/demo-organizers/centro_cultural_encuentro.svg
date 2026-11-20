@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="ccBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E6B7B" />
+      <stop offset="100%" stop-color="#144A56" />
+    </linearGradient>
+    <linearGradient id="ccSun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD166" />
+      <stop offset="100%" stop-color="#F77F00" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#ccBg)" stroke="#FFD166" stroke-width="4" />
+  <!-- Sun rays -->
+  <g stroke="#FFD166" stroke-width="2.5" stroke-linecap="round">
+    <line x1="60" y1="16" x2="60" y2="24" />
+    <line x1="34" y1="26" x2="40" y2="32" />
+    <line x1="86" y1="26" x2="80" y2="32" />
+    <line x1="23" y1="48" x2="31" y2="50" />
+    <line x1="97" y1="48" x2="89" y2="50" />
+  </g>
+  <!-- Rising sun -->
+  <path d="M36 62 A24 24 0 0 1 84 62 Z" fill="url(#ccSun)" />
+  <!-- Cultural arch & stage -->
+  <path d="M24 62 L96 62" stroke="#FFF8EB" stroke-width="3" stroke-linecap="round" />
+  <path d="M32 62 L32 82 L88 82 L88 62" fill="none" stroke="#FFF8EB" stroke-width="2.5" stroke-linejoin="round" />
+  <!-- Musical note & palette motif -->
+  <circle cx="48" cy="73" r="4" fill="#FFD166" />
+  <path d="M51 73 L51 64 L57 62 L57 71" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" />
+  <circle cx="72" cy="71" r="6" fill="#F77F00" stroke="#FFF8EB" stroke-width="1.5" />
+  <circle cx="70" cy="70" r="1.5" fill="#FFF8EB" />
+  <circle cx="74" cy="72" r="1.5" fill="#1E6B7B" />
+  <text x="60" y="99" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFD166" letter-spacing="1.1">ENCUENTRO</text>
+</svg>

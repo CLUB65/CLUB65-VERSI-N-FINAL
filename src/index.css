@@ -1,0 +1,735 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-club-orange: #F26A2E;
+  --color-club-orange-dark: #D85418;
+  --color-club-brown: #5A2B1B;
+  --color-club-teal: #3B98A6;
+  --color-club-blue: #8CD0E3;
+  --color-club-cream: #FDF8F2;
+  --font-brand: 'Fredoka', cursive, sans-serif;
+  --font-sans: 'Nunito', sans-serif;
+}
+
+:root {
+  --c65-chat-header-bg: #FFFFFF;
+  --c65-chat-header-border: #EEDCC9;
+  --c65-canvas-bg: #F8F3EC;
+  --c65-surface-1: #FFFFFF;
+  --c65-surface-2: #FDF8F2;
+}
+
+html {
+  font-size: 16px;
+  transition: font-size 0.2s ease;
+}
+
+html.text-size-grande {
+  font-size: 18px;
+}
+
+html.text-size-gigante {
+  font-size: 20px;
+}
+
+body {
+  background-color: #F8F3EC;
+  color: #38241D;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  transition: font-size 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-brand {
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+.retro-shadow {
+  box-shadow: 0 4px 14px rgba(90, 43, 27, 0.08);
+}
+
+.retro-shadow-strong {
+  box-shadow: 0 8px 24px rgba(90, 43, 27, 0.14);
+}
+
+.pill-btn {
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.pill-btn:active {
+  transform: scale(0.97);
+}
+
+#map-container {
+  height: 260px;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  accent-color: #F26A2E !important;
+}
+
+/* Scrollbar styling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================================
+   MODO OSCURO ACCESIBLE (WCAG AA: >= 4.5:1 texto normal, >= 3:1 UI/títulos)
+   Paleta: Gris carbón / azul pizarra suave (sin negro puro #000000 de fondo)
+   ============================================================================ */
+html.dark {
+  color-scheme: dark;
+  --c65-chat-header-bg: #242D3D;
+  --c65-chat-header-border: #52647F;
+  --c65-canvas-bg: #161B24;
+  --c65-surface-1: #1F2733;
+  --c65-surface-2: #273142;
+}
+
+html.dark body {
+  background-color: #161B24;
+  color: #E1E7F0;
+}
+
+html.dark .retro-shadow {
+  box-shadow: 0 4px 18px rgba(7, 10, 16, 0.45);
+}
+
+html.dark .retro-shadow-strong {
+  box-shadow: 0 10px 28px rgba(7, 10, 16, 0.6);
+}
+
+/* Fondos generales del canvas y tarjetas */
+html.dark .bg-\[\#F8F3EC\],
+html.dark .bg-\[\#FCE0A2\] {
+  background-color: #161B24 !important;
+}
+
+html.dark nav.bg-club-cream,
+html.dark footer.bg-club-cream {
+  background-color: #1B222E !important;
+  border-color: #3E4D63 !important;
+}
+
+html.dark .bg-white,
+html.dark .bg-white\/80,
+html.dark .bg-white\/85,
+html.dark .bg-white\/90,
+html.dark .bg-white\/95,
+html.dark .bg-\[\#FFFFFF\],
+html.dark .bg-club-cream {
+  background-color: #1F2733 !important;
+}
+
+/* Botones/elementos sobre cards que originalmente usan bg-white necesitan distinguirse */
+html.dark button.bg-white,
+html.dark a.bg-white,
+html.dark label.bg-white,
+html.dark .bg-white button.bg-white,
+html.dark .bg-club-cream button.bg-white,
+html.dark .bg-amber-50 button.bg-white {
+  background-color: #273142 !important;
+  color: #F4F6F9 !important;
+  border-color: #687E9E !important;
+}
+
+html.dark button.bg-white:hover,
+html.dark a.bg-white:hover,
+html.dark label.bg-white:hover {
+  background-color: #323F54 !important;
+  border-color: #8CA2C4 !important;
+}
+
+/* Superficies secundarias y anidadas */
+html.dark .bg-amber-50,
+html.dark .bg-amber-50\/40,
+html.dark .bg-amber-50\/50,
+html.dark .bg-amber-50\/60,
+html.dark .bg-amber-50\/70,
+html.dark .bg-amber-50\/75,
+html.dark .bg-amber-50\/80,
+html.dark .bg-amber-50\/90,
+html.dark .bg-amber-50\/95,
+html.dark .bg-orange-50,
+html.dark .bg-orange-50\/80,
+html.dark .bg-stone-50,
+html.dark .bg-stone-50\/60,
+html.dark .bg-\[\#FCF4E8\],
+html.dark .bg-\[\#FFF4E8\],
+html.dark .bg-\[\#FFF8EF\] {
+  background-color: #273142 !important;
+}
+
+html.dark .bg-amber-100,
+html.dark .bg-amber-100\/50,
+html.dark .bg-amber-100\/60,
+html.dark .bg-amber-100\/70,
+html.dark .bg-amber-100\/80,
+html.dark .bg-stone-100,
+html.dark .bg-stone-100\/70,
+html.dark .bg-\[\#FCE5CE\],
+html.dark .bg-\[\#FCE5CE\]\/75,
+html.dark .bg-\[\#FDE2CD\],
+html.dark .bg-\[\#F7E5CD\] {
+  background-color: #2E3A4D !important;
+}
+
+html.dark .bg-amber-200,
+html.dark .bg-amber-300,
+html.dark .bg-\[\#FDE3A7\],
+html.dark .bg-\[\#FDE8A6\],
+html.dark .bg-\[\#FDE8A6\]\/70,
+html.dark .bg-\[\#FDE8A6\]\/95,
+html.dark .bg-\[\#F7D3B4\],
+html.dark .bg-\[\#F7D3B4\]\/80,
+html.dark .bg-\[\#F7D3B4\]\/85,
+html.dark .bg-\[\#F7D3B4\]\/90,
+html.dark .bg-\[\#F1B485\] {
+  background-color: #3A3123 !important;
+  color: #FDE8BA !important;
+}
+
+html.dark .bg-stone-200,
+html.dark .bg-stone-200\/70,
+html.dark .bg-stone-300 {
+  background-color: #38455C !important;
+  color: #F4F6F9 !important;
+}
+
+html.dark button.bg-amber-500,
+html.dark .bg-amber-500 {
+  background-color: #B45309 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark button.bg-amber-500:hover,
+html.dark .hover\:bg-amber-600:hover {
+  background-color: #92400E !important;
+  color: #FFFFFF !important;
+}
+
+/* Estados hover en superficies */
+html.dark .hover\:bg-amber-50:hover,
+html.dark .hover\:bg-amber-50\/50:hover,
+html.dark .hover\:bg-amber-50\/60:hover,
+html.dark .hover\:bg-amber-50\/80:hover,
+html.dark .hover\:bg-stone-50:hover,
+html.dark .hover\:bg-\[\#FFF4E8\]:hover,
+html.dark .hover\:bg-\[\#FFF8EF\]:hover {
+  background-color: #313E52 !important;
+}
+
+html.dark .hover\:bg-amber-100:hover,
+html.dark .hover\:bg-amber-100\/60:hover,
+html.dark .hover\:bg-amber-200:hover,
+html.dark .hover\:bg-amber-300:hover,
+html.dark .hover\:bg-stone-100:hover,
+html.dark .hover\:bg-stone-200:hover,
+html.dark .hover\:bg-stone-300:hover,
+html.dark .hover\:bg-\[\#F7E5CD\]:hover,
+html.dark .hover\:bg-\[\#F7C59F\]:hover,
+html.dark .hover\:bg-\[\#F7C59F\]\/60:hover {
+  background-color: #38465D !important;
+}
+
+html.dark .hover\:bg-\[\#FAD97A\]:hover {
+  background-color: #4A3D29 !important;
+}
+
+/* Banner de cookies y barra oscura existente */
+html.dark #banner-cookies,
+html.dark .bg-\[\#3D2114\] {
+  background-color: #202836 !important;
+  color: #F4F6F9 !important;
+  border-color: #FF9B66 !important;
+}
+
+/* Superficies semánticas (Éxito / Info / Moderación / Peligro) */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-50\/70,
+html.dark .bg-emerald-100,
+html.dark .bg-emerald-100\/80,
+html.dark .bg-emerald-600\/15 {
+  background-color: #16332B !important;
+}
+
+html.dark .hover\:bg-emerald-50:hover,
+html.dark .hover\:bg-emerald-100:hover {
+  background-color: #1E443A !important;
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-blue-50\/40,
+html.dark .bg-blue-50\/60,
+html.dark .bg-blue-50\/70,
+html.dark .bg-blue-50\/90,
+html.dark .bg-blue-100,
+html.dark .bg-blue-100\/60,
+html.dark .bg-blue-100\/90 {
+  background-color: #192D47 !important;
+}
+
+html.dark .hover\:bg-blue-50\/80:hover,
+html.dark .hover\:bg-blue-100:hover {
+  background-color: #223B5C !important;
+}
+
+html.dark .bg-purple-50,
+html.dark .bg-purple-50\/40,
+html.dark .bg-purple-50\/70,
+html.dark .bg-purple-50\/80,
+html.dark .bg-purple-100,
+html.dark .bg-purple-100\/90 {
+  background-color: #2A2042 !important;
+}
+
+html.dark .hover\:bg-purple-50:hover,
+html.dark .hover\:bg-purple-100:hover {
+  background-color: #362954 !important;
+}
+
+html.dark .bg-rose-50,
+html.dark .bg-rose-50\/60,
+html.dark .bg-rose-50\/70,
+html.dark .bg-rose-50\/80,
+html.dark .bg-rose-100,
+html.dark .bg-red-100,
+html.dark .bg-\[\#FCE4EC\] {
+  background-color: #3B1E26 !important;
+}
+
+html.dark .hover\:bg-rose-50:hover,
+html.dark .hover\:bg-rose-100:hover,
+html.dark .hover\:bg-rose-200:hover,
+html.dark .hover\:bg-\[\#F8CBD9\]:hover {
+  background-color: #4D2732 !important;
+}
+
+/* Botones de marca y acento en modo oscuro (mantienen >= 4.5:1 con texto blanco o claro) */
+html.dark .bg-club-orange,
+html.dark .bg-\[\#F16623\],
+html.dark .bg-\[\#F35C22\] {
+  background-color: #C94810 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .hover\:bg-club-orange:hover,
+html.dark .hover\:bg-club-orange-dark:hover,
+html.dark .bg-club-orange:hover,
+html.dark .hover\:bg-\[\#D95516\]:hover,
+html.dark .hover\:bg-\[\#e15018\]:hover {
+  background-color: #B23E0B !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .bg-club-orange\/10,
+html.dark .bg-club-orange\/15,
+html.dark .bg-club-orange\/20,
+html.dark .bg-\[\#F26A2E\]\/15 {
+  background-color: rgba(255, 155, 102, 0.16) !important;
+}
+
+html.dark .bg-\[\#3B98A6\]\/15 {
+  background-color: rgba(110, 210, 224, 0.16) !important;
+}
+
+html.dark .bg-club-teal,
+html.dark .bg-\[\#3994A4\],
+html.dark .bg-\[\#538D9F\] {
+  background-color: #237887 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .hover\:bg-club-teal:hover,
+html.dark .hover\:bg-\[\#467d8e\]:hover {
+  background-color: #1D6470 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .bg-club-blue {
+  background-color: #215363 !important;
+  color: #E5F8FC !important;
+  border-color: #4EA9BC !important;
+}
+
+html.dark .bg-club-blue:hover {
+  background-color: #C94810 !important;
+  color: #FFFFFF !important;
+  border-color: #FF9B66 !important;
+}
+
+/* Botón / Pill activo bg-club-brown (ej: filtro categoría seleccionada o CTA marrón) */
+html.dark .bg-club-brown,
+html.dark .bg-\[\#4B210F\] {
+  background-color: #C94810 !important;
+  color: #FFFFFF !important;
+  border-color: #FF9B66 !important;
+}
+
+html.dark .hover\:bg-\[\#3a180a\]:hover {
+  background-color: #B23E0B !important;
+}
+
+/* Mantener la insignia numérica amarilla sobre botón violeta con alto contraste */
+html.dark .bg-amber-400 {
+  background-color: #FBBF24 !important;
+  color: #2E1065 !important;
+}
+
+html.dark .bg-amber-400 * {
+  color: #2E1065 !important;
+}
+
+/* Campos de texto, áreas de texto y selectores */
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+html.dark textarea,
+html.dark select {
+  background-color: #121720 !important;
+  color: #F4F6F9 !important;
+  border-color: #687E9E !important;
+  caret-color: #FF9B66;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #9AA8BF !important;
+  opacity: 1 !important;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]):focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #FF9B66 !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 155, 102, 0.35);
+}
+
+html.dark input[type="radio"],
+html.dark input[type="checkbox"] {
+  accent-color: #FF9B66 !important;
+}
+
+/* Bordes y divisores */
+html.dark .border-amber-100,
+html.dark .border-amber-200,
+html.dark .border-amber-200\/60,
+html.dark .border-amber-200\/70,
+html.dark .border-amber-200\/80,
+html.dark .border-amber-200\/90,
+html.dark .border-stone-100,
+html.dark .border-stone-200,
+html.dark .border-\[\#EDE0D0\],
+html.dark .border-\[\#EEDCC9\]\/80,
+html.dark .border-\[\#ECCEA9\]\/80 {
+  border-color: #3E4D63 !important;
+}
+
+html.dark .border-amber-300,
+html.dark .border-amber-300\/80,
+html.dark .border-stone-300,
+html.dark .border-orange-200,
+html.dark .border-\[\#E6C9A8\],
+html.dark .border-\[\#E6D5C3\],
+html.dark .border-\[\#ECC7A6\],
+html.dark .border-\[\#E6B288\]\/60,
+html.dark .border-\[\#E8BA92\] {
+  border-color: #687E9E !important;
+}
+
+html.dark .border-amber-400,
+html.dark .border-\[\#ECC864\] {
+  border-color: #9C7C3B !important;
+}
+
+html.dark .border-purple-100,
+html.dark .border-purple-200,
+html.dark .border-purple-300 {
+  border-color: #6C4EA8 !important;
+}
+
+html.dark .border-blue-100,
+html.dark .border-blue-200,
+html.dark .border-blue-300 {
+  border-color: #3A699E !important;
+}
+
+html.dark .border-emerald-100,
+html.dark .border-emerald-200,
+html.dark .border-emerald-300 {
+  border-color: #2E755F !important;
+}
+
+html.dark .border-rose-100,
+html.dark .border-rose-200,
+html.dark .border-rose-200\/80,
+html.dark .border-rose-300,
+html.dark .border-rose-400,
+html.dark .border-red-400,
+html.dark .border-\[\#F1AFC4\] {
+  border-color: #963F53 !important;
+}
+
+html.dark .divide-amber-100 > :not(:last-child),
+html.dark .divide-amber-100\/80 > :not(:last-child) {
+  border-color: #3E4D63 !important;
+}
+
+/* Jerarquía de Tipografía en modo oscuro */
+html.dark .text-club-brown,
+html.dark .text-\[\#4A2311\],
+html.dark .text-\[\#3D1C0A\],
+html.dark .text-\[\#3E1A09\],
+html.dark .text-\[\#5A2B1B\],
+html.dark .text-stone-950,
+html.dark .text-stone-900,
+html.dark .text-stone-800,
+html.dark .text-amber-950,
+html.dark .text-amber-900 {
+  color: #F4F6F9 !important;
+}
+
+html.dark .text-club-brown\/90,
+html.dark .text-club-brown\/85,
+html.dark .text-club-brown\/80,
+html.dark .text-club-brown\/75,
+html.dark .text-club-brown\/70,
+html.dark .text-\[\#5C3A28\],
+html.dark .text-\[\#5E3A26\],
+html.dark .text-\[\#5E4032\],
+html.dark .text-stone-700,
+html.dark .text-amber-800,
+html.dark .text-amber-800\/80 {
+  color: #E1E7F0 !important;
+}
+
+html.dark .text-\[\#6D4C3D\],
+html.dark .text-\[\#7A5C4D\],
+html.dark .text-stone-600,
+html.dark .text-stone-500,
+html.dark .text-amber-700,
+html.dark .text-amber-700\/70,
+html.dark .text-amber-700\/60 {
+  color: #BFC9D9 !important;
+}
+
+html.dark .text-stone-400,
+html.dark .text-stone-300,
+html.dark .text-amber-800\/40 {
+  color: #9AA8BF !important;
+}
+
+/* Mantener texto oscuro legible sobre insignias/chips con fondo claro explícito */
+html.dark .bg-amber-200 .text-club-brown,
+html.dark .bg-\[\#FDE3A7\],
+html.dark .bg-\[\#FDE8A6\],
+html.dark .bg-\[\#F7D3B4\] {
+  color: #FDE8BA !important;
+}
+
+html.dark .text-club-orange,
+html.dark .text-\[\#F16623\],
+html.dark .text-\[\#F35C22\],
+html.dark .text-\[\#A94110\],
+html.dark .text-amber-600,
+html.dark .text-amber-500 {
+  color: #FF9B66 !important;
+}
+
+html.dark .text-club-teal,
+html.dark .text-\[\#3994A4\],
+html.dark .text-\[\#4D899C\],
+html.dark .text-\[\#246A76\] {
+  color: #6ED2E0 !important;
+}
+
+/* Textos sobre fondos sólidos de acento siempre en blanco puro */
+html.dark .bg-club-orange,
+html.dark .bg-club-orange *,
+html.dark .bg-club-brown,
+html.dark .bg-club-brown *,
+html.dark .bg-purple-700,
+html.dark .bg-purple-700 *,
+html.dark .bg-purple-800,
+html.dark .bg-purple-800 *,
+html.dark .bg-rose-600,
+html.dark .bg-rose-600 *,
+html.dark .bg-rose-700,
+html.dark .bg-rose-700 *,
+html.dark .bg-emerald-600,
+html.dark .bg-emerald-600 *,
+html.dark .bg-emerald-700,
+html.dark .bg-emerald-700 *,
+html.dark .bg-blue-600,
+html.dark .bg-blue-600 *,
+html.dark .bg-blue-700,
+html.dark .bg-blue-700 *,
+html.dark .bg-\[\#F16623\],
+html.dark .bg-\[\#3994A4\] {
+  color: #FFFFFF !important;
+}
+
+/* Excepción: contador amber-400 e icono dorado dentro de botones violetas */
+html.dark .bg-purple-700 .bg-amber-400,
+html.dark .bg-purple-800 .bg-amber-400 {
+  color: #2E1065 !important;
+}
+
+html.dark .bg-purple-800 .text-amber-300 {
+  color: #FCD34D !important;
+}
+
+/* Textos semánticos */
+html.dark .text-purple-950,
+html.dark .text-purple-900,
+html.dark .text-purple-900\/80,
+html.dark .text-purple-800,
+html.dark .text-purple-700,
+html.dark .text-purple-600 {
+  color: #EADFFF !important;
+}
+
+html.dark .text-blue-950,
+html.dark .text-blue-900,
+html.dark .text-blue-800,
+html.dark .text-blue-800\/85,
+html.dark .text-blue-700,
+html.dark .text-blue-600 {
+  color: #CCE4FF !important;
+}
+
+html.dark .text-emerald-950,
+html.dark .text-emerald-900,
+html.dark .text-emerald-800,
+html.dark .text-emerald-700,
+html.dark .text-emerald-600 {
+  color: #BDF7E0 !important;
+}
+
+html.dark .text-rose-950,
+html.dark .text-rose-900,
+html.dark .text-rose-800,
+html.dark .text-rose-700,
+html.dark .text-rose-600,
+html.dark .text-rose-500,
+html.dark .text-red-950,
+html.dark .text-red-900,
+html.dark .text-red-800,
+html.dark .text-red-700,
+html.dark .text-\[\#881337\] {
+  color: #FFD6DF !important;
+}
+
+html.dark .hover\:text-club-brown:hover,
+html.dark .hover\:text-stone-900:hover,
+html.dark .hover\:text-stone-800:hover,
+html.dark .hover\:text-stone-700:hover,
+html.dark .hover\:text-\[\#3D1C0A\]:hover,
+html.dark .hover\:text-amber-950:hover {
+  color: #FFFFFF !important;
+}
+
+html.dark .hover\:text-club-orange:hover,
+html.dark .hover\:text-club-orange-dark:hover {
+  color: #FFAD80 !important;
+}
+
+html.dark .hover\:text-club-teal:hover,
+html.dark .hover\:text-\[\#3994A4\]:hover {
+  color: #8DE0EC !important;
+}
+
+html.dark .hover\:text-rose-700:hover,
+html.dark .hover\:text-rose-600:hover,
+html.dark .hover\:text-red-700:hover {
+  color: #FFB8C8 !important;
+}
+
+/* Mi Chat: contenedor, burbujas y cabecera */
+html.dark .bg-\[\#FCF7EE\],
+html.dark .bg-\[\#FCF7EE\]\/95 {
+  background-color: #1A202B !important;
+}
+
+html.dark .bg-\[\#D6EEF2\] {
+  background-color: #1D4450 !important;
+  color: #ECF9FB !important;
+  border-color: #367687 !important;
+}
+
+html.dark .bg-\[\#D6EEF2\] .text-\[\#1D3B42\] {
+  color: #ECF9FB !important;
+}
+
+html.dark .bg-\[\#D6EEF2\] .text-\[\#246A76\] {
+  color: #98DCE8 !important;
+}
+
+html.dark .bg-black\/5 {
+  background-color: rgba(12, 16, 24, 0.48) !important;
+}
+
+/* Check de verificación flotante en Avatar */
+html.dark span.bg-white.rounded-full.text-purple-700,
+html.dark span.bg-white.rounded-full.text-blue-600 {
+  background-color: #1F2733 !important;
+  border: 1px solid #52647F !important;
+}
+
+/* Leaflet Map en modo oscuro: tiles cómodas + controles y popups accesibles */
+html.dark .leaflet-tile-pane {
+  filter: brightness(0.82) contrast(1.06) saturate(0.88);
+}
+
+html.dark .leaflet-control-zoom a {
+  background-color: #1F2733 !important;
+  color: #F4F6F9 !important;
+  border-color: #687E9E !important;
+}
+
+html.dark .leaflet-control-zoom a:hover {
+  background-color: #2E3A4D !important;
+}
+
+html.dark .leaflet-control-attribution {
+  background-color: rgba(22, 27, 36, 0.85) !important;
+  color: #BFC9D9 !important;
+}
+
+html.dark .leaflet-control-attribution a {
+  color: #6ED2E0 !important;
+}
+
+html.dark .leaflet-popup-content-wrapper,
+html.dark .leaflet-popup-tip {
+  background-color: #1F2733 !important;
+  color: #F4F6F9 !important;
+  border: 1px solid #687E9E;
+}
+
+html.dark .leaflet-popup-content strong {
+  color: #FF9B66 !important;
+}
+
+html.dark .leaflet-popup-content span {
+  color: #E1E7F0 !important;
+}
+
+/* Modales de visor multimedia / lightbox */
+html.dark .bg-\[\#18110D\],
+html.dark .bg-\[\#1A110E\],
+html.dark .bg-\[\#241712\] {
+  background-color: #1B222E !important;
+  border-color: #52647F !important;
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="clubBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1D3557" />
+      <stop offset="100%" stop-color="#0F213B" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="#F1FAEE" stroke="#1D3557" stroke-width="4" />
+  <!-- Shield -->
+  <path d="M32 28 L88 28 L88 62 C88 80 60 95 60 95 C60 95 32 80 32 62 Z" fill="url(#clubBg)" stroke="#E6B800" stroke-width="3.5" stroke-linejoin="round" />
+  <!-- Diagonal sash -->
+  <path d="M34 65 L75 30 L86 30 L86 41 L43 78 Z" fill="#E63946" />
+  <path d="M34 70 L86 28" stroke="#FFFFFF" stroke-width="2" opacity="0.85" />
+  <!-- Golden star -->
+  <polygon points="60,36 63.5,43.5 71.5,44.5 65.5,50 67,58 60,54 53,58 54.5,50 48.5,44.5 56.5,43.5" fill="#FFD166" stroke="#1D3557" stroke-width="1" />
+  <!-- Monogram -->
+  <text x="60" y="79" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF" letter-spacing="1">CAVE</text>
+</svg>
